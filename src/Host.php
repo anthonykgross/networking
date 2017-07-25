@@ -4,7 +4,7 @@ namespace Networking;
 class Host
 {
     /**
-     * @var String
+     * @var IP
      */
     private $ip;
     /**
@@ -17,7 +17,7 @@ class Host
     private $delay;
 
     /**
-     * @return String
+     * @return IP
      */
     public function getIp()
     {
@@ -30,7 +30,7 @@ class Host
      */
     public function setIp($ip)
     {
-        $this->ip = $ip;
+        $this->ip = new IP($ip);
         return $this;
     }
 

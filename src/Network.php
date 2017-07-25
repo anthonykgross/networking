@@ -45,7 +45,7 @@ class Network
             $t1 = microtime(true);
 
             // Send a zero sized UDP packet towards the destination
-            socket_sendto($send_socket, "", 0, 0, $this->host->getIp(), self::TRACEROUTE_PORT);
+            socket_sendto($send_socket, "", 0, 0, $this->host->getIp()->getIp(), self::TRACEROUTE_PORT);
 
             // Wait for an event to occur on the socket or timeout after 5 seconds. This will take care of the
             // hanging when no data is received (packet is dropped silently for example)
@@ -89,7 +89,7 @@ class Network
             $ttl++;
 
             // When we have hit our destination, stop the traceroute
-            if ($recv_addr == $this->host->getIp()) {
+            if ($recv_addr == $this->host->getIp()->getIp()) {
                 break;
             }
         }
